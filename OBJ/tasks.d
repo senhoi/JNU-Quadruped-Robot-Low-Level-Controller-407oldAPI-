@@ -3,7 +3,7 @@
 ..\obj\tasks.o: ..\SYSTEM\sys\sys.h
 ..\obj\tasks.o: ..\USER\stm32f4xx.h
 ..\obj\tasks.o: ..\CORE\core_cm4.h
-..\obj\tasks.o: D:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\tasks.o: D:\3.keil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\tasks.o: ..\CORE\core_cmInstr.h
 ..\obj\tasks.o: ..\CORE\core_cmFunc.h
 ..\obj\tasks.o: ..\CORE\core_cm4_simd.h
@@ -38,11 +38,11 @@
 ..\obj\tasks.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\tasks.o: ..\SYSTEM\delay\delay.h
 ..\obj\tasks.o: ..\SYSTEM\usart\usart.h
-..\obj\tasks.o: D:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\tasks.o: D:\3.keil\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\tasks.o: ..\APP\motor.h
 ..\obj\tasks.o: ..\APP\pid.h
 ..\obj\tasks.o: ..\HARDWARE\LED\led.h
 ..\obj\tasks.o: ..\HARDWARE\LCD\lcd.h
-..\obj\tasks.o: D:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\tasks.o: D:\3.keil\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\tasks.o: ..\HARDWARE\CAN\can.h
 ..\obj\tasks.o: ..\HARDWARE\INNFOS\SCA_ctrl.h

@@ -869,12 +869,11 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=..\obj\startup_stm32f40_41xxx.d -o..\obj\startup_stm32f40_41xxx
-.o -I"C:\Users\张春宇\Desktop\实验13 TFT LCD显示实验\USER\RTE" -I"D:\Program Fi
-les (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM
-32F4xx\Include" -I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include" -I"D:\Prog
-ram Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Device\Include" --pre
-define="__UVISION_VERSION SETA 521" --predefine="STM32F407xx SETA 1" --list=..\
-obj\startup_stm32f40_41xxx.lst ..\CORE\startup_stm32f40_41xxx.s
+.o -IE:\1.Profession\test\JNU-Quadruped-Robot-Low-Level-Controller-407oldAPI-\U
+SER\RTE -ID:\3.keil\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0 -ID:\3.keil\ARM\CMSIS\Inc
+lude -ID:\3.keil\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Device\Include --predefine="
+__UVISION_VERSION SETA 514" --predefine="STM32F407xx SETA 1" --list=..\obj\star
+tup_stm32f40_41xxx.lst ..\CORE\startup_stm32f40_41xxx.s
 
 
 
