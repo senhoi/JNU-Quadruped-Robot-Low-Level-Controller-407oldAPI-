@@ -34,7 +34,7 @@ void init_task_hardware(void)
 */
 void init_task_controller(void)
 {
-    MOTOR_init(&SCA[0], MOTOR_POSITION_MODE);
+    MOTOR_init(&SCA[0], MOTOR_VELOCITY_MODE);
 
     MOTOR_set_vel_loop_gain(&SCA[0], 1.0f, 0.0f);
     MOTOR_set_vel_loop_limit(&SCA[0], 0.0f, 0.0f);
@@ -93,12 +93,14 @@ void ctrl_task(void)
 
     for (int i = 0; i < ACTR_DEV_NUM; i++)
     {
+        MOTOR_vel_mode(&SCA[i], 100.0f);
+
         printf("DEBUG1:CODE:%d\r\n", GetActrPara(ACTR_CMD_GET_POSTION, devIDList[i]));
         printf("DEBUG2:CODE:%d\r\n", GetActrPara(ACTR_CMD_GET_SPEED, devIDList[i]));
 
         printf("SPD:%f POS:%f\r\n", pActrParaDev->actrSpeed, pActrParaDev->actrPostion);
 
-        MOTOR_set_fbk(&SCA[i], 0.0f, pActrParaDev->actrSpeed, pActrParaDev->actrPostion);
+        MOTOR_set_fbk(&SCA[i], 0.0f, pActrParaDev->actrSpeed * 68.0f * 64.0f, pActrParaDev->actrPostion);
 
         MOTOR_calc(&SCA[i]);
 
