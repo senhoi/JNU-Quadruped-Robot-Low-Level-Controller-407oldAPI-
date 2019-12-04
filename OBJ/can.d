@@ -2,7 +2,7 @@
 ..\obj\can.o: ..\HARDWARE\CAN\can.h
 ..\obj\can.o: ..\USER\stm32f4xx.h
 ..\obj\can.o: ..\CORE\core_cm4.h
-..\obj\can.o: D:\3.keil\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\can.o: D:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\can.o: ..\CORE\core_cmInstr.h
 ..\obj\can.o: ..\CORE\core_cmFunc.h
 ..\obj\can.o: ..\CORE\core_cm4_simd.h

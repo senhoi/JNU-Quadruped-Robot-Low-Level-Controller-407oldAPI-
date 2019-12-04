@@ -114,7 +114,8 @@ void ctrl_task(void)
         //printf("max:%.2f min:%.2f err_sum:%.2f\r\n", SCA[0].pid_cur.max, SCA[0].pid_cur.min, SCA[0].pid_cur.err_sum);
         //printf("VEL-PID:\r\n");
         //printf("K:%.2f %.2f %.2f\r\n", SCA[0].pid_vel.kp, SCA[0].pid_vel.ki, SCA[0].pid_vel.kd);
-        printf("in:%.2f fbk:%.2f ffd:%.2f\r\n", SCA[0].pid_vel.in, SCA[0].pid_vel.fbk, SCA[0].pid_vel.ffd);
+        printf("T:%f\r\n", Time_s + Time_ms / 1000.0f);
+        //printf("in:%.2f fbk:%.2f ffd:%.2f\r\n", SCA[0].pid_vel.in, SCA[0].pid_vel.fbk, SCA[0].pid_vel.ffd);
         printf("out:%.2f %.2f\r\n", SCA[0].pid_vel.out[0], SCA[0].pid_vel.out[1]);
         //printf("err:%.2f %.2f %.2f\r\n", SCA[0].pid_vel.err[0], SCA[0].pid_vel.err[1], SCA[0].pid_vel.err[2]);
         //printf("max:%.2f min:%.2f err_sum:%.2f\r\n", SCA[0].pid_vel.max, SCA[0].pid_vel.min, SCA[0].pid_vel.err_sum);

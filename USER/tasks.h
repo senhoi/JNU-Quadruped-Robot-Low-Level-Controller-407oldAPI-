@@ -8,6 +8,7 @@
 #include "led.h"
 #include "lcd.h"
 #include "can.h"
+#include "timer.h"
 #include "SCA_ctrl.h"
 
 void init_task(void);

@@ -1,10 +1,10 @@
 ..\obj\sca_ctrl.o: ..\HARDWARE\INNFOS\SCA_ctrl.c
-..\obj\sca_ctrl.o: D:\3.keil\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\sca_ctrl.o: D:\3.keil\ARM\ARMCC\Bin\..\include\math.h
+..\obj\sca_ctrl.o: D:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\sca_ctrl.o: D:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\sca_ctrl.o: ..\HARDWARE\CAN\can.h
 ..\obj\sca_ctrl.o: ..\USER\stm32f4xx.h
 ..\obj\sca_ctrl.o: ..\CORE\core_cm4.h
-..\obj\sca_ctrl.o: D:\3.keil\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\sca_ctrl.o: D:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\sca_ctrl.o: ..\CORE\core_cmInstr.h
 ..\obj\sca_ctrl.o: ..\CORE\core_cmFunc.h
 ..\obj\sca_ctrl.o: ..\CORE\core_cm4_simd.h
