@@ -37,7 +37,7 @@ void init_task_controller(void)
     MOTOR_init(&SCA[0], MOTOR_VELOCITY_MODE);
 
     MOTOR_set_vel_loop_gain(&SCA[0], 0.1f, 0.0f);
-    MOTOR_set_vel_loop_limit(&SCA[0], 3.30f, -3.30f);
+    MOTOR_set_vel_loop_limit(&SCA[0], 33.0f, -33.0f);
     MOTOR_set_pos_loop_gain(&SCA[0], 1.0f, 0.0f, 0.0f);
     MOTOR_set_pos_loop_limit(&SCA[0], 0.0f, 0.0f);
 }
@@ -112,8 +112,8 @@ void ctrl_task(void)
         //printf("out:%.2f %.2f\r\n", SCA[0].pid_cur.out[0], SCA[0].pid_cur.out[1]);
         //printf("err:%.2f %.2f %.2f\r\n", SCA[0].pid_cur.err[0], SCA[0].pid_cur.err[1], SCA[0].pid_cur.err[2]);
         //printf("max:%.2f min:%.2f err_sum:%.2f\r\n", SCA[0].pid_cur.max, SCA[0].pid_cur.min, SCA[0].pid_cur.err_sum);
-        printf("VEL-PID:\r\n");
-        printf("K:%.2f %.2f %.2f\r\n", SCA[0].pid_vel.kp, SCA[0].pid_vel.ki, SCA[0].pid_vel.kd);
+        //printf("VEL-PID:\r\n");
+        //printf("K:%.2f %.2f %.2f\r\n", SCA[0].pid_vel.kp, SCA[0].pid_vel.ki, SCA[0].pid_vel.kd);
         printf("in:%.2f fbk:%.2f ffd:%.2f\r\n", SCA[0].pid_vel.in, SCA[0].pid_vel.fbk, SCA[0].pid_vel.ffd);
         printf("out:%.2f %.2f\r\n", SCA[0].pid_vel.out[0], SCA[0].pid_vel.out[1]);
         //printf("err:%.2f %.2f %.2f\r\n", SCA[0].pid_vel.err[0], SCA[0].pid_vel.err[1], SCA[0].pid_vel.err[2]);
