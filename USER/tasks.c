@@ -93,22 +93,16 @@ void ctrl_task(void)
 
     for (int i = 0; i < ACTR_DEV_NUM; i++)
     {
-        GetActrPara(ACTR_CMD_GET_POSTION, devIDList[i]);
-        while (Can1BusyCheck() != CAN_BUS_STATE_FREE)
-            ;
-
-        GetActrPara(ACTR_CMD_GET_SPEED, devIDList[i]);
-        while (Can1BusyCheck() != CAN_BUS_STATE_FREE)
-            ;
+        printf("DEBUG1:CODE:%d\r\n", GetActrPara(ACTR_CMD_GET_POSTION, devIDList[i]));
+        printf("DEBUG2:CODE:%d\r\n", GetActrPara(ACTR_CMD_GET_SPEED, devIDList[i]));
 
         MOTOR_set_fbk(&SCA[i], 0.0f, pActrParaDev->actrSpeed, pActrParaDev->actrPostion);
 
         MOTOR_calc(&SCA[i]);
 
         SetActrCurrent(MOTOR_get_cmd(&SCA[i]) / 33.0f, devIDList[i]);
-
-        while (Can1BusyCheck() != CAN_BUS_STATE_FREE)
-            ;
+        printf("DEBUG3:CUR:%.3fA\r\n", MOTOR_get_cmd(&SCA[i]));
+        delay_ms(1);
     }
 }
 
