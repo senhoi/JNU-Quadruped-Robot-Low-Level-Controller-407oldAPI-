@@ -38,6 +38,7 @@ void init_task_controller(void)
 
     MOTOR_set_vel_loop_gain(&SCA[0], 1.0f, 0.0f);
     MOTOR_set_vel_loop_limit(&SCA[0], 0.0f, 0.0f);
+    MOTOR_set_vel_loop_limit(&SCA[0], 33.0f, -33.0f);
     MOTOR_set_pos_loop_gain(&SCA[0], 1.0f, 0.0f, 0.0f);
     MOTOR_set_pos_loop_limit(&SCA[0], 0.0f, 0.0f);
 }
