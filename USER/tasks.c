@@ -96,6 +96,8 @@ void ctrl_task(void)
         printf("DEBUG1:CODE:%d\r\n", GetActrPara(ACTR_CMD_GET_POSTION, devIDList[i]));
         printf("DEBUG2:CODE:%d\r\n", GetActrPara(ACTR_CMD_GET_SPEED, devIDList[i]));
 
+        printf("SPD:%f POS:%f\r\n", pActrParaDev->actrSpeed, pActrParaDev->actrPostion);
+
         MOTOR_set_fbk(&SCA[i], 0.0f, pActrParaDev->actrSpeed, pActrParaDev->actrPostion);
 
         MOTOR_calc(&SCA[i]);
