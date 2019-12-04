@@ -26,25 +26,25 @@ typedef struct PID_t
 	float max;
 	float min;
 	float err_sum;
-	
+
 } PID_t;
 
-void PID_init(PID_t* pid, PID_Mode_t mode, float kp, float ki, float kd);
+void PID_init(PID_t *pid, PID_Mode_t mode, float kp, float ki, float kd);
 
-void PID_calc(PID_t* pid);
+void PID_calc(PID_t *pid);
 
-void PID_set_in(PID_t* pid, float in);
+void PID_set_in(PID_t *pid, float in);
 
-void PID_set_fbk(PID_t* pid, float fbk);
+void PID_set_fbk(PID_t *pid, float fbk);
 
-void PID_set_ffd(PID_t* pid, float ffd);
+void PID_set_ffd(PID_t *pid, float ffd);
 
-void PID_set_gain(PID_t* pid, float kp, float ki, float kd);
+void PID_set_gain(PID_t *pid, float kp, float ki, float kd);
 
-void PID_set_limit(PID_t* pid, float max, float min);
+void PID_set_limit(PID_t *pid, float max, float min);
 
-float PID_get_out(PID_t* pid);
+float PID_get_out(PID_t *pid);
 
-void PID_clr_buf(PID_t* pid);
+void PID_clr_buf(PID_t *pid);
 
 #endif

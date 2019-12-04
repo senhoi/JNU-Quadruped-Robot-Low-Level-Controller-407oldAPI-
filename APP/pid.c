@@ -20,7 +20,7 @@
 	* @Attention:	If ki/kd is set to 0, the corrosponding controller will be disabled.
 					kp cannot be set to 0!!!
 */
-void PID_init(PID_t* pid, PID_Mode_t mode, float kp, float ki, float kd)
+void PID_init(PID_t *pid, PID_Mode_t mode, float kp, float ki, float kd)
 {
 	pid->kp = kp;
 	pid->ki = ki;
@@ -47,7 +47,7 @@ void PID_init(PID_t* pid, PID_Mode_t mode, float kp, float ki, float kd)
 	* @Attention:	Either mode will output the actual control rather than the control increment.
 					For regular mode, the property of anti integral windup is added.
 */
-void PID_calc(PID_t* pid)
+void PID_calc(PID_t *pid)
 {
 	pid->err[2] = pid->err[1];
 	pid->err[1] = pid->err[0];
@@ -64,7 +64,7 @@ void PID_calc(PID_t* pid)
 		{
 			if (pid->err[0] < 0)
 				pid->err_sum += pid->err[0];
-		}	
+		}
 		else if (pid->out[1] < pid->min)
 		{
 			if (pid->err[0] > 0)
@@ -87,8 +87,15 @@ void PID_calc(PID_t* pid)
 	pid->out[0] += pid->ffd;
 
 	/* Limitting the output */
-	pid->out[0] = (pid->out[0] > pid->max) ? pid->max : pid->out[0];
-	pid->out[0] = (pid->out[0] < pid->min) ? pid->min : pid->out[0];
+	if (pid->max - pid->min < 0)
+		pid->out[0] = 0;
+	else if (pid->max - pid->min < 0.01f)
+		pid->out[0] = pid->out[0];
+	else
+	{
+		pid->out[0] = (pid->out[0] > pid->max) ? pid->max : pid->out[0];
+		pid->out[0] = (pid->out[0] < pid->min) ? pid->min : pid->out[0];
+	}
 }
 
 /**
@@ -98,7 +105,7 @@ void PID_calc(PID_t* pid)
 	* @Return:		none
 	* @Attention:	none
 */
-void PID_set_in(PID_t* pid, float in)
+void PID_set_in(PID_t *pid, float in)
 {
 	pid->in = in;
 }
@@ -111,7 +118,7 @@ void PID_set_in(PID_t* pid, float in)
 	* @Attention:	This feedforward value will minus the input. Which means the feedback 
 					should be the same type of value with the input.
 */
-void PID_set_fbk(PID_t* pid, float fbk)
+void PID_set_fbk(PID_t *pid, float fbk)
 {
 	pid->fbk = fbk;
 }
@@ -127,7 +134,7 @@ void PID_set_fbk(PID_t* pid, float fbk)
 					e.g. If the input of a pid controller of DC motor is position,
 					the output should be velocity. And the feedforward is velocity as well.
 */
-void PID_set_ffd(PID_t* pid, float ffd)
+void PID_set_ffd(PID_t *pid, float ffd)
 {
 	pid->ffd = ffd;
 }
@@ -142,7 +149,7 @@ void PID_set_ffd(PID_t* pid, float ffd)
 	* @Attention:	If ki/kd is set to 0, the corrosponding controller will be disabled.
 					kp cannot be set to 0!!!
 */
-void PID_set_gain(PID_t* pid, float kp, float ki, float kd)
+void PID_set_gain(PID_t *pid, float kp, float ki, float kd)
 {
 	pid->kp = kp;
 	pid->ki = ki;
@@ -159,7 +166,7 @@ void PID_set_gain(PID_t* pid, float kp, float ki, float kd)
 					for output.
 					If max < min, the output is going to stay at 0.
 */
-void PID_set_limit(PID_t* pid, float max, float min)
+void PID_set_limit(PID_t *pid, float max, float min)
 {
 	pid->max = max;
 	pid->min = min;
@@ -171,7 +178,7 @@ void PID_set_limit(PID_t* pid, float max, float min)
 	* @Return:		output value of the pid controller
 	* @Attention:	none
 */
-float PID_get_out(PID_t* pid)
+float PID_get_out(PID_t *pid)
 {
 	return pid->out[0];
 }
@@ -182,7 +189,7 @@ float PID_get_out(PID_t* pid)
 	* @Return:		none
 	* @Attention:	none
 */
-void PID_clr_buf(PID_t* pid)
+void PID_clr_buf(PID_t *pid)
 {
 	pid->in = 0;
 	pid->fbk = 0;
