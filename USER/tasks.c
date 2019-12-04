@@ -19,7 +19,7 @@ void init_task_hardware(void)
 {
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
     delay_init(168);
-    uart_init(115200);
+    uart_init(256000);
     LED_Init();
     LCD_Init();
     CAN1_Init();
@@ -95,10 +95,8 @@ void ctrl_task(void)
     {
         MOTOR_vel_mode(&SCA[i], 100.0f);
 
-        printf("DEBUG1:CODE:%d\r\n", GetActrPara(ACTR_CMD_GET_POSTION, devIDList[i]));
-        printf("DEBUG2:CODE:%d\r\n", GetActrPara(ACTR_CMD_GET_SPEED, devIDList[i]));
-
-        printf("SPD:%f POS:%f\r\n", pActrParaDev->actrSpeed, pActrParaDev->actrPostion);
+        GetActrPara(ACTR_CMD_GET_POSTION, devIDList[i]);
+        GetActrPara(ACTR_CMD_GET_SPEED, devIDList[i]);
 
         MOTOR_set_fbk(&SCA[i], 0.0f, pActrParaDev->actrSpeed * 68.0f * 64.0f, pActrParaDev->actrPostion);
 
@@ -108,18 +106,18 @@ void ctrl_task(void)
         //printf("DEBUG3:CUR:%.3fA\r\n", MOTOR_get_cmd(&SCA[i]));
         //delay_ms(1);
 
-        printf("CUR-PID:\r\n");
+        //printf("CUR-PID:\r\n");
         //printf("K:%.2f %.2f %.2f\r\n", SCA[0].pid_cur.kp, SCA[0].pid_cur.ki, SCA[0].pid_cur.kd);
-        printf("in:%.2f fbk:%.2f ffd:%.2f\r\n", SCA[0].pid_cur.in, SCA[0].pid_cur.fbk, SCA[0].pid_cur.ffd);
-        printf("out:%.2f %.2f\r\n", SCA[0].pid_cur.out[0], SCA[0].pid_cur.out[1]);
+        //printf("in:%.2f fbk:%.2f ffd:%.2f\r\n", SCA[0].pid_cur.in, SCA[0].pid_cur.fbk, SCA[0].pid_cur.ffd);
+        //printf("out:%.2f %.2f\r\n", SCA[0].pid_cur.out[0], SCA[0].pid_cur.out[1]);
         //printf("err:%.2f %.2f %.2f\r\n", SCA[0].pid_cur.err[0], SCA[0].pid_cur.err[1], SCA[0].pid_cur.err[2]);
         //printf("max:%.2f min:%.2f err_sum:%.2f\r\n", SCA[0].pid_cur.max, SCA[0].pid_cur.min, SCA[0].pid_cur.err_sum);
         printf("VEL-PID:\r\n");
         printf("K:%.2f %.2f %.2f\r\n", SCA[0].pid_vel.kp, SCA[0].pid_vel.ki, SCA[0].pid_vel.kd);
         printf("in:%.2f fbk:%.2f ffd:%.2f\r\n", SCA[0].pid_vel.in, SCA[0].pid_vel.fbk, SCA[0].pid_vel.ffd);
         printf("out:%.2f %.2f\r\n", SCA[0].pid_vel.out[0], SCA[0].pid_vel.out[1]);
-        printf("err:%.2f %.2f %.2f\r\n", SCA[0].pid_vel.err[0], SCA[0].pid_vel.err[1], SCA[0].pid_vel.err[2]);
-        printf("max:%.2f min:%.2f err_sum:%.2f\r\n", SCA[0].pid_vel.max, SCA[0].pid_vel.min, SCA[0].pid_vel.err_sum);
+        //printf("err:%.2f %.2f %.2f\r\n", SCA[0].pid_vel.err[0], SCA[0].pid_vel.err[1], SCA[0].pid_vel.err[2]);
+        //printf("max:%.2f min:%.2f err_sum:%.2f\r\n", SCA[0].pid_vel.max, SCA[0].pid_vel.min, SCA[0].pid_vel.err_sum);
         //printf("POS-PID:\r\n");
         //printf("K:%.2f %.2f %.2f\r\n", SCA[0].pid_pos.kp, SCA[0].pid_pos.ki, SCA[0].pid_pos.kd);
         //printf("in:%.2f fbk:%.2f ffd:%.2f\r\n", SCA[0].pid_pos.in, SCA[0].pid_pos.fbk, SCA[0].pid_pos.ffd);
